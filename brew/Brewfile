@@ -1,0 +1,331 @@
+tap "asherweintraub/tap"
+tap "browsh-org/browsh"
+tap "homebrew/bundle"
+tap "homebrew/cask-drivers"
+tap "homebrew/services"
+tap "khanhas/tap"
+tap "koekeishiya/formulae"
+tap "oven-sh/bun"
+tap "shopify/shopify"
+# TIFF library and utilities
+brew "libtiff"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# New file format for still image compression
+brew "jpeg-xl"
+# Codec library for encoding and decoding AV1 video streams
+brew "aom"
+# Companion library to apr, the Apache Portable Runtime library
+brew "apr-util"
+# Modern, simple TCP tunnel in Rust that exposes local ports to a remote server
+brew "bore-cli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Linux/OSX/FreeBSD resource monitor
+brew "bpytop"
+# Core application library for C
+brew "glib"
+# Vector graphics library with cross-device output support
+brew "cairo"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Asynchronous event library
+brew "libevent"
+# Library to load and enumerate PKCS#11 modules
+brew "p11-kit"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Image processing and image analysis library
+brew "leptonica"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# Blu-Ray disc playback library for media players like VLC
+brew "libbluray"
+# Light HTTP/1.1 server library
+brew "libmicrohttpd"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Secure Reliable Transport
+brew "srt"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Cross-platform make
+brew "cmake", link: false
+# Apjanke's fork of the classic cowsay project
+brew "cowsay"
+# C library implementing the SSH2 protocol
+brew "libssh2"
+# Tool for downloading RTMP streaming media
+brew "rtmpdump"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Modern replacement for 'ls'
+brew "exa"
+# Modern, maintained replacement for ls
+brew "eza"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Infamous electronic fortune-cookie generator
+brew "fortune"
+# Libraries to talk to Microsoft SQL Server and Sybase databases
+brew "freetds"
+# Command-line downloader for image-hosting site galleries and collections
+brew "gallery-dl"
+# Graphics library to dynamically manipulate images
+brew "gd"
+# GitHub command-line tool
+brew "gh"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Distributed revision control system
+brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Git extension for versioning large files
+brew "git-lfs"
+# Render markdown on the CLI
+brew "glow"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# Command-line interface to libgphoto2
+brew "gphoto2"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
+# Library for manipulating JPEG-2000 images
+brew "jasper"
+# Database of common MIME types
+brew "shared-mime-info"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
+# Library for reading RAW files from digital photo cameras
+brew "libraw"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Command-line tool to export and inspect local iMessage database
+brew "imessage-exporter"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
+# Rainbows and unicorns in your console!
+brew "lolcat"
+# Music Player Daemon
+brew "mpd"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Port scanning utility for large networks
+brew "nmap"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Trigger notifications when a process completes
+brew "noti"
+# Open source computer vision library
+brew "opencv"
+# Command-line tool to generate, analyze, convert and manipulate colors
+brew "pastel"
+# General-purpose scripting language
+brew "php"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# Monitor data's progress through a pipe
+brew "pv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Perl-powered file rename script with many helpful built-ins
+brew "rename"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Create beautiful image of your source code
+brew "silicon"
+# Prints a steam locomotive if you type sl instead of ls
+brew "sl"
+# Tools for manipulating EPROM load files
+brew "srecord"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Separate tracks via Shoutcasts title-streaming
+brew "streamripper"
+# Simplified and community-driven man pages
+brew "tldr"
+# Internet file retriever
+brew "wget"
+# Fast CSV toolkit written in Rust
+brew "xsv"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Command-line tool to customize Spotify client
+brew "khanhas/tap/spicetify-cli"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
+# A CLI tool to build for the Shopify platform
+brew "shopify/shopify/shopify-cli"
+# Sound and music editor
+cask "ableton-live-suite"
+# Android SDK component
+cask "android-platform-tools"
+# Tools for building Android applications
+cask "android-studio"
+# Electronics prototyping platform
+cask "arduino"
+# Multi-track audio editor and recorder
+cask "audacity"
+# Integrated CAD, CAM, CAE, and PCB software
+cask "autodesk-fusion"
+# Data backup and storage service
+cask "backblaze"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# Menu bar icon organiser
+cask "bartender"
+# Virtual Audio Driver
+cask "blackhole-16ch"
+# 3D creation suite
+cask "blender"
+# GUI app for Homebrew
+cask "cakebrew"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Family of tools to build, test and package software
+cask "cmake-app"
+# Node-based image, video and audio generator
+cask "comfyui"
+# Disk space visualiser
+cask "daisydisk"
+# Reference manager
+cask "endnote"
+# Launcher for *Epic Games* games
+cask "epic-games"
+# Collaborative team software
+cask "figma"
+# Font discovery and rental platform
+cask "fontstand"
+# Audio player
+cask "foobar2000"
+# Open-source platform for visualizing and manipulating large graphs
+cask "gephi"
+# Free and open-source image editor
+cask "gimp"
+# Desktop client for GitHub repositories
+cask "github"
+# Virtual globe
+cask "google-earth-pro"
+# Tools to protect your emails and files
+cask "gpg-suite"
+# Graphically shows disk usage within a file system
+cask "grandperspective"
+# Hex editor focussing on speed
+cask "hex-fiend"
+# Access the HEY email service
+cask "hey-desktop"
+# Free and open-source media player
+cask "iina"
+# Electronics design automation suite
+cask "kicad"
+# WordPress local development tool by Flywheel
+cask "local"
+# Software for Logitech devices
+cask "logi-options+"
+# Clipboard manager
+cask "maccy"
+# File system integration
+cask "macfuse"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Spreadsheet software
+cask "microsoft-excel"
+# Music tracker compatible with FT2
+cask "milkytracker"
+# Minimal browser that protects privacy
+cask "min"
+# Sandbox construction video game
+cask "minecraft"
+# VPN client
+cask "mullvad-vpn"
+# Open-source music notation software
+cask "musescore"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Native code editor
+cask "nova"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Programmable solid 3D CAD modeller
+cask "openscad"
+# WebKit based web browser
+cask "orion"
+# Visual programming language for multimedia
+cask "pd"
+# Stenotype engine
+cask "plover"
+# Peer to peer Bitorrent client
+cask "qbittorrent"
+# Geographic Information System
+cask "qgis"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
+# Environment for statistical computing and graphics
+cask "r-app"
+# WinAMP clone written in SwiftUI
+cask "reamp"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Free Dj app to prepare and manage your music files
+cask "rekordbox"
+# Data science software focusing on R and Python
+cask "rstudio"
+# Tool to format memory cards complying with the SD File System spec
+cask "sdformatter"
+# Instant messaging application focusing on security
+cask "signal"
+# File sharing network
+cask "soulseek"
+# Music streaming service
+cask "spotify"
+# Video game digital distribution service
+cask "steam"
+# Server, language, and IDE for sound synthesis and algorithmic composition
+cask "supercollider"
+# Convert 3D models into G-code instructions or PNG layers
+cask "superslicer"
+# Data visualization software
+cask "tableau"
+# Web browser focusing on security
+cask "tor-browser"
+# Tool for creating dynamic digital art
+cask "touchdesigner"
+# Open-source BitTorrent client
+cask "transmission"
+# Companion app for the Trezor hardware wallet
+cask "trezor-suite"
+# Configurable document editor that supports Markdown
+cask "typora"
+# Open-source virtual modular synthesiser
+cask "vcv-rack"
+# Keyboard configurator
+cask "via"
+# Access etextbooks
+cask "vitalsource-bookshelf"
+# View output from scripts in the menu bar
+cask "xbar"
+go "golang.org/x/website/tour"
+cargo "csvlens"
