@@ -7,7 +7,6 @@
 tap "asherweintraub/tap"
 tap "browsh-org/browsh"
 tap "charmbracelet/tap"
-tap "khanhas/tap"
 tap "koekeishiya/formulae"
 tap "oven-sh/bun"
 tap "shopify/shopify"
@@ -63,6 +62,7 @@ brew "rtmpdump"
 # ── Audio ──────────────────────────────────────────────
 brew "mpd"
 brew "spotify_player"
+brew "spicetify-cli"
 brew "streamripper"
 
 # ── Data ───────────────────────────────────────────────
@@ -95,6 +95,7 @@ brew "freetds"
 brew "gd"
 brew "glib"
 brew "gnutls"
+brew "gobject-introspection"
 brew "harfbuzz"
 brew "jasper"
 brew "jpeg-xl"
@@ -115,7 +116,6 @@ brew "shared-mime-info"
 brew "unbound"
 
 # ── Tap formulae ───────────────────────────────────────
-brew "khanhas/tap/spicetify-cli"
 brew "oven-sh/bun/bun"
 brew "shopify/shopify/shopify-cli"
 
@@ -139,9 +139,12 @@ cask "bettermouse"
 cask "rectangle"
 cask "claude-code"
 cask "qutebrowser"
+cask "alcove"
+cask "monocle-app"
 
 # Creative / audio / music
 cask "ableton-live-suite"
+cask "audacity"
 cask "musescore"
 cask "milkytracker"
 cask "supercollider"
@@ -163,6 +166,7 @@ cask "via"
 cask "arduino"
 
 # Dev / data / science
+cask "github"
 cask "android-studio"
 cask "android-platform-tools"
 cask "local"
