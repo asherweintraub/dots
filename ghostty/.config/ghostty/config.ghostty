@@ -1,0 +1,26 @@
+# https://ghostty.org/docs/config/reference
+
+# theme
+theme = light:Monokai Pro Light,dark:Monokai Pro Spectrum
+
+# font (bold/italic variants are auto-selected, no config needed)
+font-family = SF Mono
+font-size = 14
+
+# window
+window-padding-x = 4
+window-padding-y = 4
+macos-titlebar-style = transparent
+
+# cursor (no-cursor stops shell integration forcing a bar at the prompt)
+cursor-style = block
+shell-integration-features = no-cursor
+
+# other
+quit-after-last-window-closed = true
+mouse-hide-while-typing = true
+
+# quick terminal (replaces kitty quick-access-terminal.conf)
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+quick-terminal-position = left
+quick-terminal-autohide = false
