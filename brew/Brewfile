@@ -13,8 +13,6 @@ tap "shopify/shopify"
 tap "steipete/tap"
 
 # ── Shell & prompt ─────────────────────────────────────
-brew "fish"
-brew "fisher"
 brew "starship"
 
 # ── Core CLI ───────────────────────────────────────────
