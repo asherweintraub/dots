@@ -9,6 +9,7 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 # aliases
 alias ls="eza -al --icons --no-user --no-permissions"
 alias grerp="grep -ri --exclude-dir='node_modules'" # rg -i does this + respects .gitignore
+alias cl="claude-sessions"
 
 # startup scripts
 colorscript -e crunchbang
