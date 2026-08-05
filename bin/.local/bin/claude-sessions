@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+# claude-sessions — find, search, and browse past Claude Code sessions.
+#
+# Reads the session store at ~/.claude/projects/<project>/<session-id>.jsonl
+# and presents it in fzf, newest first, with a transcript preview.
+#
+# Usage:
+#   claude-sessions              browse all sessions
+#   claude-sessions <query>      browse with the fuzzy filter prefilled
+#   claude-sessions -g <pat>     only sessions whose content matches <pat> (grep -iE)
+#   claude-sessions -l           print the session list to stdout (scriptable)
+#
+# Keys:
+#   enter    resume the session in its project directory (claude --resume)
+#   ctrl-v   view the full transcript in a pager
+#   ctrl-y   copy the session id to the clipboard
+#
+# Deps: jq, fzf
+
+set -euo pipefail
+
+PROJECTS_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects"
+SELF=$(realpath "$0")
+
+usage() { sed -n '2,18p' "$SELF" | cut -c3-; }
+
+# Title: the session summary if one was stored, else the first real user prompt.
+# first() exits as soon as a line matches, so big transcripts stay cheap.
+TITLE_JQ='
+  first(inputs
+    | if .type == "summary" then .summary
+      elif .type == "user" and (.isMeta // false | not) then
+        (.message.content
+         | if type == "string" then . else (map(select(.type? == "text") | .text) | join(" ")) end
+         | select(length > 0 and (startswith("<") or startswith("Caveat:") | not)))
+      else empty end
+    | gsub("[\\n\\t]"; " ") | .[0:150])
+  // "(no prompt)"'
+
+# One line per session: file, cwd, id, date, project, title (tab-separated).
+# fzf only displays fields 4+; 1-3 feed the preview/resume/copy bindings.
+index() {
+  if [ -n "${GREP_PAT:-}" ]; then
+    grep -rliE --include='*.jsonl' -- "$GREP_PAT" "$PROJECTS_DIR" |
+      grep -v /subagents/ | tr '\n' '\0'
+  else
+    find "$PROJECTS_DIR" -mindepth 2 -maxdepth 2 -name '*.jsonl' -print0
+  fi |
+    xargs -0 stat -f $'%m\t%Sm\t%N' -t '%Y-%m-%d %H:%M' | sort -rn |
+    while IFS=$'\t' read -r _ date file; do
+      cwd=$(grep -m1 -o '"cwd":"[^"]*"' "$file" | cut -d'"' -f4) || true
+      [ -n "$cwd" ] || cwd=$HOME
+      title=$(jq -nr "$TITLE_JQ" "$file" 2>/dev/null) || title="(unreadable)"
+      printf '%s\t%s\t%s\t%s\t\033[34m%-18.18s\033[0m\t%s\n' \
+        "$file" "$cwd" "$(basename "$file" .jsonl)" "$date" "${cwd##*/}" "$title"
+    done
+}
+
+# Transcript: user/assistant text only; tool traffic and meta lines are skipped.
+render() {
+  jq -r '
+    select(.type == "user" or .type == "assistant")
+    | select((.isSidechain // false) or (.isMeta // false) | not)
+    | (.message.content
+       | if type == "string" then .
+         else (map(select(.type? == "text") | .text) | join("\n")) end) as $text
+    | select($text | length > 0 and (startswith("<") | not))
+    | (if .type == "user" then "[36;1m● you[0m" else "[35;1m● claude[0m" end)
+      + "\n" + $text + "\n"
+  ' "$1"
+}
+
+case "${1:-}" in
+  --preview) render "$2"; exit ;;
+  -h|--help) usage; exit ;;
+  -l|--list) index; exit ;;
+  -g) GREP_PAT="${2:?usage: claude-sessions -g <pattern>}"; shift 2 ;;
+esac
+
+index | fzf --ansi --delimiter '\t' --with-nth '4..' --no-hscroll \
+  --query "${*:-}" \
+  --header 'enter resume · ctrl-v view · ctrl-y copy id' \
+  --preview "\"$SELF\" --preview {1}" \
+  --preview-window 'right,55%,wrap' \
+  --bind "ctrl-v:execute(\"$SELF\" --preview {1} | less -R)" \
+  --bind 'ctrl-y:execute-silent(printf %s {3} | pbcopy)' \
+  --bind 'enter:become(cd {2} 2>/dev/null; exec claude --resume {3})'
