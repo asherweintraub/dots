@@ -77,11 +77,15 @@ case "${1:-}" in
   -g) GREP_PAT="${2:?usage: claude-sessions -g <pattern>}"; shift 2 ;;
 esac
 
-index | fzf --ansi --delimiter '\t' --with-nth '4..' --no-hscroll \
+# Resume via plain selection, not enter:become(claude ...): claude's terminal
+# init deadlocks (no input) when exec'd over fzf, so launch it after fzf exits.
+sel=$(index | fzf --ansi --delimiter '\t' --with-nth '4..' --no-hscroll \
   --query "${*:-}" \
   --header 'enter resume · ctrl-v view · ctrl-y copy id' \
   --preview "\"$SELF\" --preview {1}" \
   --preview-window 'right,55%,wrap' \
   --bind "ctrl-v:execute(\"$SELF\" --preview {1} | less -R)" \
-  --bind 'ctrl-y:execute-silent(printf %s {3} | pbcopy)' \
-  --bind 'enter:become(cd {2} 2>/dev/null; exec claude --resume {3})'
+  --bind 'ctrl-y:execute-silent(printf %s {3} | pbcopy)') || exit 0
+IFS=$'\t' read -r _ dir id _ <<<"$sel"
+cd "$dir" 2>/dev/null || true
+exec claude --resume "$id"
