@@ -6,13 +6,20 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.deno/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin" # pipx
 
+# options
+setopt auto_cd # a bare directory path (e.g. `..`) cds into it
+
 # aliases
 alias ls="eza -al --icons --no-user --no-permissions"
 alias grerp="grep -ri --exclude-dir='node_modules'" # rg -i does this + respects .gitignore
+alias lg="lazygit"
 alias cl="claude-sessions"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # startup scripts
-colorscript -e crunchbang
+colorscript -e crunchbang-mini
 eza
 
 # plugins
@@ -35,3 +42,5 @@ export LDFLAGS="-L$(brew --prefix openssl)/lib"
 export CPPFLAGS="-I$(brew --prefix openssl)/include"
 export CFLAGS="-I$(brew --prefix openssl)/include"
 
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
