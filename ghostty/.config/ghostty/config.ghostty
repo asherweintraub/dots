@@ -1,5 +1,7 @@
 # https://ghostty.org/docs/config/reference
 
+macos-option-as-alt = true
+
 # theme
 theme = light:Monokai Pro Light,dark:Monokai Pro Spectrum
 
@@ -19,8 +21,3 @@ shell-integration-features = no-cursor
 # other
 quit-after-last-window-closed = true
 mouse-hide-while-typing = true
-
-# quick terminal (replaces kitty quick-access-terminal.conf)
-keybind = global:cmd+grave_accent=toggle_quick_terminal
-quick-terminal-position = left
-quick-terminal-autohide = false
